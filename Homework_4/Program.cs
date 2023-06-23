@@ -6,7 +6,6 @@ namespace Homework_4
     {
         static void Main(string[] args)
         {
-            Stack stack = new Stack();
             var s = new Stack("a", "b", "c");
             Console.WriteLine($"size = {s.Size}, Top = '{s.Top}'");
             string deleted = s.Pop();
@@ -19,8 +18,11 @@ namespace Homework_4
             Console.WriteLine($"size = {s.Size}, Top = {(s.Top == null ? "null" : s.Top)}");
             s.Add("m");
             Console.WriteLine($"size = {s.Size}, Top = '{s.Top}'");
+
+
             var s1 = new Stack("a", "b", "c");
             s1.Merge(new Stack("1", "2", "3"));
+            Console.WriteLine($"size = {s1.Size}, Top = '{s1.Top}'");
         }
     }
 }

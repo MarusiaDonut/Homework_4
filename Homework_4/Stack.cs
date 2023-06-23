@@ -9,45 +9,25 @@ namespace Homework_4
 {
     internal class Stack
     {
-        List<string> container = new List<string>();
-        int top;
+        List<string> container;
+        int _top;
 
-
-        //Конструктор
         public Stack(params string[] container)
         {
             this.container = container.ToList();
-            top = container.Length;
+            _top = container.Length;
         }
 
+        public int Size => container.Count;
 
-        //Свойства
-        public int Size
-        {
-            get => top;
-        }
+        public string? Top => _top == 0 ? null : container[_top - 1];
+       
 
-        public string Top
-        {
-            get
-            {
-                if (top == 0)
-                {
-                    return null;
-                }
-                else
-                {
-                    return container[top - 1];
-                }
-            }
-        }
-
-
-        //Методы
         public string Add(string character)
         {
-            top++;
-            return container[0] = character;
+
+            container.Add(character);
+            return container[_top++];
         }
 
         public string Pop()
@@ -58,11 +38,11 @@ namespace Homework_4
             }
             else
             {
-                top--;
-                return container[top];
+                 _top--;
+                string element = container[_top];
+                container.RemoveAt(_top);
+                return element;
             }
         }
-
-       
     }
 }
